@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bench", "bench", "{B5B3F74B-C05A-4D25-8BAF-54BF5B610457}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Explorer.Benchmarks", "bench\Net.Explorer.Benchmarks\Net.Explorer.Benchmarks.csproj", "{176CD8FF-5970-405E-8F0A-9504112C61FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallo.Bench", "bench\Hallo.Bench\Hallo.Bench.csproj", "{176CD8FF-5970-405E-8F0A-9504112C61FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

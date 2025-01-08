@@ -1,38 +1,33 @@
 @echo off
 setlocal
 
-set TOOL_PATH=%~dp0tools
-set PATH=%PATH%%TOOL_PATH%;
+set PROGRAM=%*
+set SRC=%~dp0
+set TOOLS=%~dp0tools
+set OUT=%~dp0out
 
 if "%~1"=="" (
+    echo Error: You need to input an argument
     echo Usage:
     echo build-il IL_FILE_NO_EXT              ^| Assemble and run il file
     echo clean                                ^| Clean output directory
-    echo
-    echo Same folder as script is requried
     goto :end
 )
 
+:: empty directory
+rmdir /s /q %OUT%
 if "%~1"=="clean" (
-    rmdir /s /q %~dp0out
     goto :end
 )
 
-set program=%*
+:: Reset /out
+mkdir %OUT%
+copy %SRC%%PROGRAM%.runtimeconfig.json %OUT%
 
-if not exist %~dp0out (
-    mkdir %~dp0out
-)
+:: Assemble IL
+%TOOLS%\ilasm %SRC%\%PROGRAM%.il /output:%OUT%\%PROGRAM%.exe
 
-if not exist .%~dp0%program%.runtimeconfig.json (
-    copy %program%.runtimeconfig.json .\out\
-)
-
-ilasm %~dp0%program%.il /output:%~dp0\%program%.exe
-
-move /y %~dp0%program%.exe .\out\
-
-dotnet %~dp0out\%program%.exe
+dotnet %OUT%\%PROGRAM%.exe
 
 :end
 endlocal
