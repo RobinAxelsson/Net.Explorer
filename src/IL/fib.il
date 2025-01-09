@@ -9,40 +9,39 @@
 {
     .entrypoint
     .maxstack  2
-    .locals init (int32 V_0,
-             int32 V_1,
-             int32 V_2,
-             bool V_3)
+    .locals init (int32 a,
+             int32 b,
+             int32 c)
     
     Setup:
     ldc.i4.0    //Push int 0
-    stloc.0     //V_0 = 0
+    stloc.0     //a = 0
     ldc.i4.1    //Push int 1
-    stloc.1     //V_1 = 1
-    ldloc.0     //Push V_0
+    stloc.1     //b = 1
+    ldloc.0     //Push a
     call       void [System.Console]System.Console::WriteLine(int32) //print 0
-    ldloc.1     //Push V_1
+    ldloc.1     //Push b
     call       void [System.Console]System.Console::WriteLine(int32) //print 1
 
     AddNumbers:
-    ldloc.0    //push V_0
-    ldloc.1    //push V_1
-    add        //add and pop V_0 V_1 push sum
-    stloc.2    //pop result V_2 | V_2 = V_0 + V_1
-    ldloc.2    //push V_2
+    ldloc.0    //push a
+    ldloc.1    //push b
+    add        //add and pop a b push sum
+    stloc.2    //pop result c | c = a + b
+    ldloc.2    //push c
     ldc.i4     1000 //push const int 1000
-    cgt        //compare greater then V_2 > 1000
+    cgt        //compare greater then c > 1000
     brtrue.s  End //short jump if true
 
     PrintCurrent:  
-    ldloc.2    //push V_2 onto stack
-    call       void [System.Console]System.Console::WriteLine(int32) //print V_2
+    ldloc.2    //push c onto stack
+    call       void [System.Console]System.Console::WriteLine(int32) //print c
     
     MoveNumbers:
-    ldloc.1    //push V_1
-    stloc.0    //pop V_0 => V_0=V_1
-    ldloc.2    //push V_2
-    stloc.1    //pop V_1 => V_1=V_3
+    ldloc.1    //push b
+    stloc.0    //pop a => a=b
+    ldloc.2    //push c
+    stloc.1    //pop b => b=c
 
     br.s       AddNumbers
 
