@@ -12,9 +12,7 @@
     .locals init (int32 V_0,
              int32 V_1,
              int32 V_2,
-             bool V_3,
-             bool V_4,
-             int32 V_5)
+             bool V_3)
     
     Setup:
     ldc.i4.0    //Push int 0
@@ -25,7 +23,6 @@
     call       void [System.Console]System.Console::WriteLine(int32) //print 0
     ldloc.1     //Push V_1
     call       void [System.Console]System.Console::WriteLine(int32) //print 1
-    br.s       IL_0034 //unconditional jump .s short jump -128 +127 1byte
 
     AddNumbers:
     ldloc.0    //push V_0
@@ -35,11 +32,7 @@
     ldloc.2    //push V_2
     ldc.i4     1000 //push const int 1000
     cgt        //compare greater then V_2 > 1000
-    stloc.3    //pop result into V_3
-    ldloc.3    //push result V_3
-    brfalse.s  PrintCurrent
-
-    br.s       IL_0039 //unconditional short jump
+    brtrue.s  End //short jump if true
 
     PrintCurrent:  
     ldloc.2    //push V_2 onto stack
@@ -51,17 +44,9 @@
     ldloc.2    //push V_2
     stloc.1    //pop V_1 => V_1=V_3
 
-    IL_0034:
-    ldc.i4.1   //push int const 1
-    stloc.s    V_4 //stores 1 in bool V_4, V_4 = true
     br.s       AddNumbers
 
-    IL_0039:
+    End:
     ldc.i4.0   //push integer value 0
-    stloc.s    V_5
-    br.s       IL_003e
-
-    IL_003e:
-    ldloc.s    V_5
     ret
 }
