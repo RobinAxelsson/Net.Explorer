@@ -1,0 +1,219 @@
+Opcode;Description;Stack Behavior;Example
+add;Adds two values and pushes the result onto the stack.;Pop 2, Push;add // a + b
+add.ovf;Adds two values with overflow checking.;Pop 2, Push;add.ovf // a + b with overflow check
+add.ovf.un;Adds two unsigned values with overflow checking.;Pop 2, Push;add.ovf.un // unsigned a + b with overflow check
+and;Bitwise AND of two values.;Pop 2, Push;and // a & b
+arglist;Pushes the argument list handle for the current method onto the stack.;Push;arglist
+beq;Branches to the specified target if two values are equal.;Pop 2;beq target // if (a == b) jump
+beq.s;Branches to the target if two values are equal (short form).;Pop 2;beq.s target
+bge;Branches if the first value is greater than or equal to the second.;Pop 2;bge target // if (a >= b) jump
+bge.s;Branches if the first value is greater than or equal to the second (short form).;Pop 2;bge.s target
+bge.un;Branches if the first unsigned value is greater than or equal to the second.;Pop 2;bge.un target
+bge.un.s;Branches if the first unsigned value is greater than or equal to the second (short form).;Pop 2;bge.un.s target
+bgt;Branches if the first value is greater than the second.;Pop 2;bgt target // if (a > b) jump
+bgt.s;Branches if the first value is greater than the second (short form).;Pop 2;bgt.s target
+bgt.un;Branches if the first unsigned value is greater than the second.;Pop 2;bgt.un target
+bgt.un.s;Branches if the first unsigned value is greater than the second (short form).;Pop 2;bgt.un.s target
+ble;Branches if the first value is less than or equal to the second.;Pop 2;ble target // if (a <= b) jump
+ble.s;Branches if the first value is less than or equal to the second (short form).;Pop 2;ble.s target
+ble.un;Branches if the first unsigned value is less than or equal to the second.;Pop 2;ble.un target
+ble.un.s;Branches if the first unsigned value is less than or equal to the second (short form).;Pop 2;ble.un.s target
+blt;Branches if the first value is less than the second.;Pop 2;blt target // if (a < b) jump
+blt.s;Branches if the first value is less than the second (short form).;Pop 2;blt.s target
+blt.un;Branches if the first unsigned value is less than the second.;Pop 2;blt.un target
+blt.un.s;Branches if the first unsigned value is less than the second (short form).;Pop 2;blt.un.s target
+bne.un;Branches if two values are not equal.;Pop 2;bne.un target // if (a != b) jump
+bne.un.s;Branches if two values are not equal (short form).;Pop 2;bne.un.s target
+box;Converts a value type to an object reference.;Pop 1, Push;box int32
+break;Signals a breakpoint.;None;break
+brfalse;Branches to the target if the value is false (zero).;Pop 1;brfalse target // if (!a) jump
+brfalse.s;Branches to the target if the value is false (zero) (short form).;Pop 1;brfalse.s target
+brtrue;Branches to the target if the value is true (nonzero).;Pop 1;brtrue target // if (a) jump
+brtrue.s;Branches to the target if the value is true (nonzero) (short form).;Pop 1;brtrue.s target
+br;Unconditionally branches to the specified target.;None;br target
+br.s;Unconditionally branches to the specified target (short form).;None;br.s target
+call;Calls the method indicated by the method descriptor.;Pop arguments, Push return value;call MyMethod
+calli;Calls a method indicated on the stack.;Pop method pointer and arguments, Push return value;calli methodPointer
+callvirt;Calls a method associated with an object instance.;Pop object reference and arguments, Push return value;callvirt MyVirtualMethod
+castclass;Casts an object to a specified class.;Pop 1, Push;castclass MyClass
+ceq;Compares two values for equality.;Pop 2, Push;ceq // a == b
+cgt;Compares two values to determine if the first is greater.;Pop 2, Push;cgt // a > b
+cgt.un;Compares two unsigned values to determine if the first is greater.;Pop 2, Push;cgt.un // unsigned a > b
+ckfinite;Checks that a value is finite (not NaN or infinity).;Pop 1, Push;ckfinite
+clt;Compares two values to determine if the first is less.;Pop 2, Push;clt // a < b
+clt.un;Compares two unsigned values to determine if the first is less.;Pop 2, Push;clt.un // unsigned a < b
+constrained.;Constrains a method call to a specific type.;None;constrained. MyType
+conv.i;Converts a value to a native integer.;Pop 1, Push;conv.i
+conv.i1;Converts a value to a signed 1-byte integer.;Pop 1, Push;conv.i1
+conv.i2;Converts a value to a signed 2-byte integer.;Pop 1, Push;conv.i2
+conv.i4;Converts a value to a signed 4-byte integer.;Pop 1, Push;conv.i4
+conv.i8;Converts a value to a signed 8-byte integer.;Pop 1, Push;conv.i8
+conv.ovf.i;Converts a value to a native integer with overflow checking.;Pop 1, Push;conv.ovf.i
+conv.ovf.i.un;Converts an unsigned value to a native integer with overflow checking.;Pop 1, Push;conv.ovf.i.un
+conv.ovf.i1;Converts a value to a signed 1-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i1
+conv.ovf.i1.un;Converts an unsigned value to a signed 1-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i1.un
+conv.ovf.i2;Converts a value to a signed 2-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i2
+conv.ovf.i2.un;Converts an unsigned value to a signed 2-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i2.un
+conv.ovf.i4;Converts a value to a signed 4-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i4
+conv.ovf.i4.un;Converts an unsigned value to a signed 4-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i4.un
+conv.ovf.i8;Converts a value to a signed 8-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i8
+conv.ovf.i8.un;Converts an unsigned value to a signed 8-byte integer with overflow checking.;Pop 1, Push;conv.ovf.i8.un
+conv.ovf.u;Converts a value to an unsigned native integer with overflow checking.;Pop 1, Push;conv.ovf.u
+conv.ovf.u.un;Converts an unsigned value to an unsigned native integer with overflow checking.;Pop 1, Push;conv.ovf.u.un
+conv.ovf.u1;Converts a value to an unsigned 1-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u1
+conv.ovf.u1.un;Converts an unsigned value to an unsigned 1-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u1.un
+conv.ovf.u2;Converts a value to an unsigned 2-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u2
+conv.ovf.u2.un;Converts an unsigned value to an unsigned 2-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u2.un
+conv.ovf.u4;Converts a value to an unsigned 4-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u4
+conv.ovf.u4.un;Converts an unsigned value to an unsigned 4-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u4.un
+conv.ovf.u8;Converts a value to an unsigned 8-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u8
+conv.ovf.u8.un;Converts an unsigned value to an unsigned 8-byte integer with overflow checking.;Pop 1, Push;conv.ovf.u8.un
+conv.r.un;Converts an unsigned integer to a floating-point value.;Pop 1, Push;conv.r.un
+conv.r4;Converts a value to a 4-byte floating-point value.;Pop 1, Push;conv.r4
+conv.r8;Converts a value to an 8-byte floating-point value.;Pop 1, Push;conv.r8
+conv.u;Converts a value to an unsigned native integer.;Pop 1, Push;conv.u
+conv.u1;Converts a value to an unsigned 1-byte integer.;Pop 1, Push;conv.u1
+conv.u2;Converts a value to an unsigned 2-byte integer.;Pop 1, Push;conv.u2
+conv.u4;Converts a value to an unsigned 4-byte integer.;Pop 1, Push;conv.u4
+conv.u8;Converts a value to an unsigned 8-byte integer.;Pop 1, Push;conv.u8
+cpblk;Copies a specified number of bytes from source to destination.;Pop 3;cpblk
+cpobj;Copies a value type from one location to another.;Pop 2;cpobj MyValueType
+div;Divides two values and pushes the result onto the stack.;Pop 2, Push;div // a / b
+div.un;Divides two unsigned values and pushes the result onto the stack.;Pop 2, Push;div.un // unsigned a / b
+dup;Duplicates the value on the top of the stack.;Pop 1, Push 2;dup
+endfilter;Ends an exception filtering block.;Pop 1;endfilter
+endfinally;Ends a finally block.;None;endfinally
+initblk;Initializes a block of memory to a specified value.;Pop 3;initblk
+initobj;Initializes a value type at a specified address.;Pop 1;initobj MyValueType
+isinst;Tests whether an object is an instance of a specified class or interface.;Pop 1, Push;isinst MyClass
+jmp;Exits the current method and jumps to the specified method.;None;jmp MyMethod
+ldarg;Loads an argument onto the stack by index.;Push;ldarg 0
+ldarg.0;Loads the argument at index 0 onto the stack.;Push;ldarg.0
+ldarg.1;Loads the argument at index 1 onto the stack.;Push;ldarg.1
+ldarg.2;Loads the argument at index 2 onto the stack.;Push;ldarg.2
+ldarg.3;Loads the argument at index 3 onto the stack.;Push;ldarg.3
+ldarg.s;Loads an argument onto the stack by index (short form).;Push;ldarg.s 2
+ldarga;Loads the address of an argument onto the stack.;Push;ldarga 0
+ldarga.s;Loads the address of an argument onto the stack (short form).;Push;ldarga.s 1
+ldc.i4;Pushes a 4-byte integer constant onto the stack.;Push;ldc.i4 42
+ldc.i4.0;Pushes the integer value 0 onto the stack.;Push;ldc.i4.0
+ldc.i4.1;Pushes the integer value 1 onto the stack.;Push;ldc.i4.1
+ldc.i4.2;Pushes the integer value 2 onto the stack.;Push;ldc.i4.2
+ldc.i4.3;Pushes the integer value 3 onto the stack.;Push;ldc.i4.3
+ldc.i4.4;Pushes the integer value 4 onto the stack.;Push;ldc.i4.4
+ldc.i4.5;Pushes the integer value 5 onto the stack.;Push;ldc.i4.5
+ldc.i4.6;Pushes the integer value 6 onto the stack.;Push;ldc.i4.6
+ldc.i4.7;Pushes the integer value 7 onto the stack.;Push;ldc.i4.7
+ldc.i4.8;Pushes the integer value 8 onto the stack.;Push;ldc.i4.8
+ldc.i4.m1;Pushes the integer value -1 onto the stack.;Push;ldc.i4.m1
+ldc.i4.s;Pushes a signed 8-bit integer constant onto the stack.;Push;ldc.i4.s 127
+ldc.i8;Pushes an 8-byte integer constant onto the stack.;Push;ldc.i8 9223372036854775807
+ldc.r4;Pushes a 4-byte floating-point constant onto the stack.;Push;ldc.r4 3.14
+ldc.r8;Pushes an 8-byte floating-point constant onto the stack.;Push;ldc.r8 3.14159
+ldelem;Loads the element at a specified array index onto the stack.;Pop 2, Push;ldelem MyType
+ldelem.i1;Loads the element at a specified array index onto the stack as a signed 1-byte integer.;Pop 2, Push;ldelem.i1
+ldelem.i2;Loads the element at a specified array index onto the stack as a signed 2-byte integer.;Pop 2, Push;ldelem.i2
+ldelem.i4;Loads the element at a specified array index onto the stack as a signed 4-byte integer.;Pop 2, Push;ldelem.i4
+ldelem.i8;Loads the element at a specified array index onto the stack as a signed 8-byte integer.;Pop 2, Push;ldelem.i8
+ldelem.r4;Loads the element at a specified array index onto the stack as a 4-byte floating-point value.;Pop 2, Push;ldelem.r4
+ldelem.r8;Loads the element at a specified array index onto the stack as an 8-byte floating-point value.;Pop 2, Push;ldelem.r8
+ldelem.ref;Loads the element at a specified array index onto the stack as an object reference.;Pop 2, Push;ldelem.ref
+ldelem.u1;Loads the element at a specified array index onto the stack as an unsigned 1-byte integer.;Pop 2, Push;ldelem.u1
+ldelem.u2;Loads the element at a specified array index onto the stack as an unsigned 2-byte integer.;Pop 2, Push;ldelem.u2
+ldelem.u4;Loads the element at a specified array index onto the stack as an unsigned 4-byte integer.;Pop 2, Push;ldelem.u4
+ldelem.u8;Loads the element at a specified array index onto the stack as an unsigned 8-byte integer.;Pop 2, Push;ldelem.u8
+ldelema;Loads the address of the element at a specified array index onto the stack.;Pop 2, Push;ldelema MyType
+ldfld;Loads the value of a field of an object.;Pop 1, Push;ldfld MyField
+ldflda;Loads the address of a field of an object.;Pop 1, Push;ldflda MyField
+ldftn;Pushes a method pointer onto the stack.;Push;ldftn MyMethod
+ldind.i;Loads a value of type native integer indirectly from a memory address.;Pop 1, Push;ldind.i
+ldind.i1;Loads a value of type signed 1-byte integer indirectly from a memory address.;Pop 1, Push;ldind.i1
+ldind.i2;Loads a value of type signed 2-byte integer indirectly from a memory address.;Pop 1, Push;ldind.i2
+ldind.i4;Loads a value of type signed 4-byte integer indirectly from a memory address.;Pop 1, Push;ldind.i4
+ldind.i8;Loads a value of type signed 8-byte integer indirectly from a memory address.;Pop 1, Push;ldind.i8
+ldind.r4;Loads a value of type 4-byte floating-point indirectly from a memory address.;Pop 1, Push;ldind.r4
+ldind.r8;Loads a value of type 8-byte floating-point indirectly from a memory address.;Pop 1, Push;ldind.r8
+ldind.ref;Loads an object reference indirectly from a memory address.;Pop 1, Push;ldind.ref
+ldind.u1;Loads a value of type unsigned 1-byte integer indirectly from a memory address.;Pop 1, Push;ldind.u1
+ldind.u2;Loads a value of type unsigned 2-byte integer indirectly from a memory address.;Pop 1, Push;ldind.u2
+ldind.u4;Loads a value of type unsigned 4-byte integer indirectly from a memory address.;Pop 1, Push;ldind.u4
+ldlen;Pushes the number of elements in an array onto the stack.;Pop 1, Push;ldlen
+ldloc;Loads a local variable onto the stack by index.;Push;ldloc 0
+ldloc.0;Loads the local variable at index 0 onto the stack.;Push;ldloc.0
+ldloc.1;Loads the local variable at index 1 onto the stack.;Push;ldloc.1
+ldloc.2;Loads the local variable at index 2 onto the stack.;Push;ldloc.2
+ldloc.3;Loads the local variable at index 3 onto the stack.;Push;ldloc.3
+ldloc.s;Loads a local variable onto the stack by index (short form).;Push;ldloc.s 1
+ldloca;Loads the address of a local variable onto the stack by index.;Push;ldloca 0
+ldloca.s;Loads the address of a local variable onto the stack by index (short form).;Push;ldloca.s 1
+ldnull;Pushes a null reference onto the stack.;Push;ldnull
+ldobj;Loads a value type from a specific address.;Pop 1, Push;ldobj MyValueType
+ldsfld;Loads the value of a static field.;Push;ldsfld MyStaticField
+ldsflda;Loads the address of a static field.;Push;ldsflda MyStaticField
+ldstr;Pushes a string literal onto the stack.;Push;ldstr "Hello, World!"
+ldtoken;Pushes a runtime handle for a type, method, or field onto the stack.;Push;ldtoken MyType
+ldvirtftn;Pushes a pointer to a virtual method associated with an object onto the stack.;Pop 1, Push;ldvirtftn MyVirtualMethod
+leave;Exits a protected region of code and branches to a target instruction.;None;leave target
+leave.s;Exits a protected region of code and branches to a target instruction (short form).;None;leave.s target
+localloc;Allocates space from the local memory pool.;Pop 1, Push;localloc
+mkrefany;Pushes a typed reference onto the stack.;Pop 1, Push;mkrefany MyType
+mul;Multiplies two values and pushes the result onto the stack.;Pop 2, Push;mul // a * b
+mul.ovf;Multiplies two values with overflow checking.;Pop 2, Push;mul.ovf // a * b with overflow check
+mul.ovf.un;Multiplies two unsigned values with overflow checking.;Pop 2, Push;mul.ovf.un // unsigned a * b with overflow check
+neg;Negates a value and pushes the result onto the stack.;Pop 1, Push;neg // -a
+newarr;Creates a new array with elements of a specified type.;Pop 1, Push;newarr MyType
+newobj;Creates a new object and calls its constructor.;Pop arguments, Push;newobj MyConstructor
+nop;Does nothing (no operation).;None;nop
+not;Computes the bitwise complement of an integer value.;Pop 1, Push;not // ~a
+or;Computes the bitwise OR of two integer values.;Pop 2, Push;or // a | b
+pop;Removes the value on the top of the stack.;Pop 1;pop
+readonly.;Specifies that an address operation uses a read-only address.;None;readonly.
+refanytype;Pushes the type token stored in a typed reference.;Pop 1, Push;refanytype
+refanyval;Retrieves the address of the value in a typed reference.;Pop 1, Push;refanyval MyType
+rem;Divides two values and pushes the remainder onto the stack.;Pop 2, Push;rem // a % b
+rem.un;Divides two unsigned values and pushes the remainder onto the stack.;Pop 2, Push;rem.un // unsigned a % b
+ret;Returns from the current method.;Pop 1 (if return value);ret
+rethrow;Re-throws the current exception.;None;rethrow
+shl;Shifts an integer value to the left by a specified number of bits.;Pop 2, Push;shl // a << b
+shr;Shifts an integer value to the right by a specified number of bits.;Pop 2, Push;shr // a >> b
+shr.un;Shifts an unsigned integer value to the right by a specified number of bits.;Pop 2, Push;shr.un // unsigned a >> b
+sizeof;Pushes the size, in bytes, of a type onto the stack.;Push;sizeof MyType
+starg;Stores a value from the stack into an argument.;Pop 1;starg 0
+starg.s;Stores a value from the stack into an argument (short form).;Pop 1;starg.s 1
+stelem;Stores a value from the stack into an array element at a specified index.;Pop 3;stelem MyType
+stelem.i;Stores a value of type native integer into an array element.;Pop 3;stelem.i
+stelem.i1;Stores a value of type signed 1-byte integer into an array element.;Pop 3;stelem.i1
+stelem.i2;Stores a value of type signed 2-byte integer into an array element.;Pop 3;stelem.i2
+stelem.i4;Stores a value of type signed 4-byte integer into an array element.;Pop 3;stelem.i4
+stelem.i8;Stores a value of type signed 8-byte integer into an array element.;Pop 3;stelem.i8
+stelem.r4;Stores a value of type 4-byte floating-point into an array element.;Pop 3;stelem.r4
+stelem.r8;Stores a value of type 8-byte floating-point into an array element.;Pop 3;stelem.r8
+stelem.ref;Stores a value of type object reference into an array element.;Pop 3;stelem.ref
+stfld;Stores a value from the stack into a field of an object.;Pop 2;stfld MyField
+stind.i;Stores a value of type native integer into a memory address.;Pop 2;stind.i
+stind.i1;Stores a value of type signed 1-byte integer into a memory address.;Pop 2;stind.i1
+stind.i2;Stores a value of type signed 2-byte integer into a memory address.;Pop 2;stind.i2
+stind.i4;Stores a value of type signed 4-byte integer into a memory address.;Pop 2;stind.i4
+stind.i8;Stores a value of type signed 8-byte integer into a memory address.;Pop 2;stind.i8
+stind.r4;Stores a value of type 4-byte floating-point into a memory address.;Pop 2;stind.r4
+stind.r8;Stores a value of type 8-byte floating-point into a memory address.;Pop 2;stind.r8
+stind.ref;Stores a value of type object reference into a memory address.;Pop 2;stind.ref
+stloc;Stores a value from the stack into a local variable by index.;Pop 1;stloc 0
+stloc.0;Stores the value on the stack into the local variable at index 0.;Pop 1;stloc.0
+stloc.1;Stores the value on the stack into the local variable at index 1.;Pop 1;stloc.1
+stloc.2;Stores the value on the stack into the local variable at index 2.;Pop 1;stloc.2
+stloc.3;Stores the value on the stack into the local variable at index 3.;Pop 1;stloc.3
+stloc.s;Stores a value from the stack into a local variable by index (short form).;Pop 1;stloc.s 1
+stobj;Stores a value of a specified type into a memory address.;Pop 2;stobj MyValueType
+stsfld;Stores a value from the stack into a static field.;Pop 1;stsfld MyStaticField
+sub;Subtracts one value from another and pushes the result onto the stack.;Pop 2, Push;sub // a - b
+sub.ovf;Subtracts one value from another with overflow checking.;Pop 2, Push;sub.ovf // a - b with overflow check
+sub.ovf.un;Subtracts one unsigned value from another with overflow checking.;Pop 2, Push;sub.ovf.un // unsigned a - b with overflow check
+switch;Implements a jump table for branch operations.;Pop 1;switch case1, case2, case3
+tail.;Indicates that the subsequent call instruction is a tail call.;None;tail.
+throw;Throws the exception object currently on the stack.;Pop 1;throw
+unaligned.;Indicates that an address is unaligned.;None;unaligned. 1
+unbox;Converts an object reference to a value type pointer.;Pop 1, Push;unbox MyValueType
+unbox.any;Converts an object reference to a value type or extracts a boxed value.;Pop 1, Push;unbox.any MyValueType
+volatile.;Indicates that an operation is volatile.;None;volatile.
+xor;Computes the bitwise XOR of two integer values.;Pop 2, Push;xor // a ^ b
