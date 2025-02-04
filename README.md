@@ -22,7 +22,8 @@ cd %USERPROFILE%\.nuget\packages
 # IL Spy GUI
 winget install --id=icsharpcode.ILSpy  -e
 ```
-
+- vscode-solution-explorer
+- vscode .NET insights
 - https://sharplab.io/
 
 ### WinDbg

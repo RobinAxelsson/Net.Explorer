@@ -16,4 +16,17 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
     <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.14.0"/>
   </ItemGroup>
+    <ItemGroup>
+    <Reference Include="Manual">
+      <HintPath>.\fib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update=".\fib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <!-- <Target Name="CopyFibDll" BeforeTargets="Build">
+    <Copy SourceFiles="..\..\src\il\out\fib.dll" DestinationFolder="$(OutputPath)" />
+  </Target> -->
 </Project>

@@ -1,12 +1,18 @@
+#!/usr/bin/env pwsh
+
 # run this file with two dots to init the variables
 # > ". .\init.ps1"
 
-$REP_ROOT=$PSScriptRoot
-
-Set-Alias build-il $REP_ROOT\src\IL\build-il.bat
-Set-Alias build-masm $REP_ROOT\src\Masm\build-masm.bat
-Set-Alias run-hallo.bench $REP_ROOT\bench\Hallo.Bench\build.bat
-
-function watch-il($file){
-    watch-path "$REP_ROOT\src\IL" "$file.il" "$REP_ROOT\src\IL\build-il.bat $file"
+function AddDirToPath($dir){
+    $fullDir = Join-Path $PSScriptRoot $dir
+    
+    if (-not ($env:Path -split $pathSep -contains $fullDir)) {
+        $env:Path += [System.IO.Path]::PathSeparator + $fullDir
+    }
 }
+
+AddDirToPath "scripts"
+AddDirToPath "tools"
+$env:_ROOT_PATH_ = $PSScriptRoot
+$env:_REPO_NAME_ = "Net.Explorer"
+$env:_IL_PATH_ = Join-Path $env:_ROOT_PATH_ "src" "IL"

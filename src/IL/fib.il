@@ -8,7 +8,7 @@
 
 .class public auto ansi sealed Manual.Fibonacci
 {
-    .method static int32 Main() cil managed
+    .method public static int32 Main() cil managed
     {
         .entrypoint
         .maxstack 1
@@ -18,7 +18,7 @@
         ret
     }
 
-    .method static void RunFibonacci(int32) cil managed
+    .method public static void RunFibonacci(int32) cil managed
     {
 
         .maxstack  2
@@ -28,7 +28,7 @@
         ldc.i4.0
         stloc.0
 
-        //b = 0
+        //b = 1
         ldc.i4.1
         stloc.1
 
